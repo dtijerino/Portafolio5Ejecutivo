@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio #5 - Ética Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES DE COLOR Y ESTILO (Paleta Neon/Dark) --- */
+        :root {
+            --bg-main: #050508; /* Negro profundo */
+            --bg-card: #151525;
+            --accent-cyan: #00f2ff;
+            --accent-purple: #bd00ff;
+            --text-light: #ffffff;
+            --text-muted: #b0b0b0;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px; /* Malla cibernética de fondo */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- PORTADA MEJORADA (HERO SECTION) --- */
+        header.hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--accent-purple);
+            background: radial-gradient(circle at center, #1a1a3a 0%, #050508 80%);
+            box-shadow: 0 0 50px rgba(189, 0, 255, 0.2);
+        }
+
+        /* Efecto de luces flotantes en la portada */
+        header.hero::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 60%);
+            animation: rotateLight 15s infinite linear;
+            z-index: 1;
+        }
+        @keyframes rotateLight { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .logo-container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
+            margin-bottom: 40px;
+            transition: transform 0.3s;
+        }
+        .logo-container:hover { transform: scale(1.05); }
+
+        .logo-u { width: 220px; display: block; }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* TÍTULO GIGANTE "PORTAFOLIO #5" */
+        .portfolio-number {
+            font-size: 5rem;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1;
+            /* Efecto de texto hueco con borde neón */
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent-cyan);
+            text-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+            animation: flicker 3s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+            52% { opacity: 0.9; }
+            54% { opacity: 0.8; }
+        }
+
+        h1.main-title {
+            font-size: 2.5rem;
+            margin: 10px 0 30px 0;
+            background: linear-gradient(90deg, #fff, var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .student-info {
+            margin-top: 30px;
+            padding: 25px 40px;
+            background: rgba(21, 21, 37, 0.7);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 15px;
+            backdrop-filter: blur(10px); /* Efecto vidrio esmerilado */
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .student-info p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .date-badge {
+            display: inline-block;
+            margin-top: 15px;
+            background: var(--accent-purple);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 0 15px var(--accent-purple);
+        }
+
+        /* --- INTRODUCCIÓN --- */
+        .intro-section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .intro-section h2 { color: var(--accent-cyan); font-size: 2rem; }
+        .intro-text { font-size: 1.1rem; color: var(--text-muted); }
+
+        /* --- GRID TARJETAS --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Rebote suave */
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 242, 255, 0.15);
+            border-color: var(--accent-cyan);
+        }
+
+        .card-image-container { height: 220px; overflow: hidden; }
+        .card-image-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .card:hover img { transform: scale(1.15); }
+
+        .card-content { padding: 30px; }
+        .card h3 { color: var(--accent-cyan); margin-top: 0; font-size: 1.3rem; border-bottom: 2px solid #333; padding-bottom: 10px; display: inline-block;}
+        
+        .card:nth-child(2) h3 { color: var(--accent-purple); }
+        .card:nth-child(3) h3 { color: #ff0055; } /* Rojo neón para la 3ra tarjeta */
+
+        .card p { font-size: 0.95rem; color: #ccc; }
+        .highlight { color: #fff; font-weight: 600; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #080810;
+            color: #666;
+            margin-top: 50px;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-number { font-size: 3rem; }
+            h1.main-title { font-size: 1.8rem; }
+            .student-info { width: 80%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="logo-container">
+            <img src="https://static.wixstatic.com/media/4bedb4_42f1472fae0c491da2c93bd2fb480d2d~mv2.png" alt="Logo U Castro Carazo" class="logo-u">
+        </div>
+        
+        <div class="hero-content">
+            <h2 class="portfolio-number">PORTAFOLIO #5</h2>
+            <h1 class="main-title">ÉTICA PROFESIONAL DOCENTE</h1>
+            
+            <div class="student-info">
+                <p><strong>Curso:</strong> LD5033 Legislación Educativa</p>
+                <p><strong>Estudiante:</strong> Daniel Tijerino</p>
+                <p><strong>Docente:</strong> Msc. Hilda María González Barahona</p>
+                
+                <div class="date-badge">14 de Febrero, 2026</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro-section">
+            <h2>INTRODUCCIÓN</h2>
+            <p class="intro-text">
+                Este portafolio digital no es una simple recopilación de lecturas, sino un análisis crítico sobre la columna vertebral de la profesión docente: la ética. A través de la revisión del <strong>Código de Ética de COLYPRO</strong> y la normativa del <strong>MEP</strong>, este trabajo cuestiona la visión romántica del maestro para aterrizar en la realidad jurídica y social. Aquí exploraré cómo la ética no es un "accesorio" moral, sino una competencia técnica obligatoria que regula desde la evaluación en el aula hasta la conducta en la vida privada.
+            </p>
+        </section>
+
+        <main class="portfolio-grid">
+            <article class="card">
+                <div class="card-image-container">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Leyes">
+                </div>
+                <div class="card-content">
+                    <h3>1. ¿Qué aprendí?</h3>
+                    <p><strong>La docencia como "Vitrina Pública":</strong> Aprendí que la ética rompe la barrera entre lo público y lo privado. La sociedad exige coherencia 24/7 (Código COLYPRO).</p>
+                    <p><strong>Ética vs. Moral:</strong> La <span class="highlight">Moral</span> es personal; la <span class="highlight">Ética</span> es obligatoria y técnica. En el aula manda el reglamento, no mis creencias.</p>
+                    <p><strong>Sistema Preventivo:</strong> El Manual del MEP no es solo castigo, es prevención y transparencia en la gestión pública.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-container">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Reflexión">
+                </div>
+                <div class="card-content">
+                    <h3>2. ¿Cómo sé que lo aprendí?</h3>
+                    <p><strong>Cambio de criterio:</strong> Mi análisis pasó de ser emocional a ser técnico-jurídico. Ahora identifico qué artículo se viola, no solo si "está feo".</p>
+                    <p><strong>Sanción Social:</strong> Siento el "filtro mental" antes de actuar en mi vida privada. Esa pausa reflexiva confirma que internalicé la vigilancia social.</p>
+                    <p><strong>Conciencia Legal:</strong> Entiendo que firmar con el MEP es un compromiso de integridad legal, no solo pedagógico.</p>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-container">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ciberseguridad">
+                </div>
+                <div class="card-content">
+                    <h3>3. ¿Cómo lo aplico a mi realidad?</h3>
+                    <p><strong>En el Aula:</strong> Evaluaciones objetivas sin etiquetas ni favoritismos. La justicia técnica sobre la simpatía personal.</p>
+                    <p><strong>Recursos Tecnológicos:</strong> (Sistemas) Transparencia total en el uso de equipos del Estado. Cero uso personal de bienes públicos.</p>
+                    <p><strong>Coherencia de Vida:</strong> Cuidar mi imagen fuera del colegio. Si pierdo el respeto en la calle (ej. ebriedad), pierdo la autoridad en la clase.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>Desarrollado por Daniel Tijerino | Universidad Castro Carazo 2026</p>
+    </footer>
+
+</body>
+</html>
